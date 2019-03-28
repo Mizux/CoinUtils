@@ -1,3 +1,7 @@
+*.swp
+.vs/
+build/
+cache/
 *aclocal.m4*
 *acinclude.m4*
 *aclocal.m4.orig*
