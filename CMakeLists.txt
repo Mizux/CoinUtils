@@ -45,8 +45,11 @@ if(APPLE)
 endif(APPLE)
 
 # ZLIB
-find_package(ZLIB)
-if(ZLIB_FOUND)
+if(NOT TARGET ZLIB::ZLIB)
+  find_package(ZLIB)
+endif()
+if(ZLIB_FOUND OR TARGET ZLIB::ZLIB)
+  message(STATUS "Use zlib")
   set(HAVE_ZLIB_H "1" CACHE INTERNAL "Use zlib")
   set(COIN_HAS_ZLIB "1" CACHE INTERNAL "Use zlib")
 endif()
